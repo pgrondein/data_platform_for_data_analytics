@@ -140,4 +140,34 @@ GROUP BY country)
 		MAINTAINED BY SYSTEM;
 ```
 
+## Design of a Business Intelligence Dashboard - IBM Cognos Analytics
+
+We will create a bar chart of quarterly sales of cell phones, create a pie chart of sales of electronic goods by category, and create a line chart of total sales per month for a given year.
+
+### Bar chart of quarterly sales of cell phones
+
+![barchart](https://github.com/pgrondein/data_platform_for_data_analytics/assets/113172845/1cb8f732-7e89-4d3a-951d-3ea53a45dbf0)
+
+### Pie chart of sales of electronic goods by category
+
+![piechart](https://github.com/pgrondein/data_platform_for_data_analytics/assets/113172845/1539299a-27d7-4eae-8b61-5c5c734eda59)
+
+### Line chart of total sales per month for a given year
+
+![linechart](https://github.com/pgrondein/data_platform_for_data_analytics/assets/113172845/4c9abae2-c962-4c04-9944-7643d08efa08)
+
+## Design of an ETL - MySQL/PostgreSQL
+
+As Data Engineer, we need to keep data synchronized between different databases/data warehouses as a part of your daily routine. One task that is routinely performed is the sync up of staging data warehouse and production data warehouse. Automating this sync up will save you a lot of time and standardize your process. 
+
+We will write python scripts to perform incremental data load from MySQL and PostgreSQL server which acts as a staging warehouse to the PostgreSQL which is a production data warehouse. This script will be scheduled by the data engineers to sync up the data between the staging and production data warehouse.
+
+The Python script needs to 
+
+- connect to PostgreSQL data warehouse and identify the last row on it.
+- connect to MySQL staging data warehouse and find all rows later than the last row on the datawarehouse.
+- Insert the new data in the MySQL staging data warehouse into the PostgreSQL production data warehouse.
+
+The Python script is available here : [etl.py](https://github.com/pgrondein/data_platform_for_data_analytics/blob/f1cf0e857b2209264bfe97486afc96dcc1e491a6/etl.py)
+
 
