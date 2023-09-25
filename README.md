@@ -81,7 +81,8 @@ The company retails download only items like E-Books, Movies, Songs etc. It has 
 
 We use the ERD Design Tool of pgAdmin from PostgreSQL.
 
-![softcartRelationships.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/589f2cdb-c9de-4013-a992-6fb063ff1ea6/f098a2f9-1845-4a8b-8b53-e96f0387e141/softcartRelationships.jpg)
+![softcartRelationships](https://github.com/pgrondein/data_platform_for_data_analytics/assets/113172845/e27177e3-9134-4f59-8e0f-dc12a0168dfc)
+
 
 We then generate the SQL script from the ERD design tool to optain the data warehouse schema. 
 
@@ -134,9 +135,9 @@ FROM factsales
 LEFT JOIN dimcountry
 ON factsales.countryid = dimcountry.countryid
 GROUP BY country)
-					DATA INITIALLY DEFERRED
-					REFRESH DEFERRED
-					MAINTAINED BY SYSTEM;
+		DATA INITIALLY DEFERRED
+		REFRESH DEFERRED
+		MAINTAINED BY SYSTEM;
 ```
 
 
