@@ -1,3 +1,5 @@
+![big-data-data-cloud](https://github.com/pgrondein/data_platform_for_data_analytics/assets/113172845/eedc1eb6-604c-477d-9132-cf67b1664bdb)
+
 # Data Platform for retail Data Analytics
 
 This project goal is to design a Data Platform for retail Data Analytics. 
