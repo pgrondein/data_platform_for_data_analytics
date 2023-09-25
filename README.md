@@ -83,6 +83,60 @@ We use the ERD Design Tool of pgAdmin from PostgreSQL.
 
 ![softcartRelationships.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/589f2cdb-c9de-4013-a992-6fb063ff1ea6/f098a2f9-1845-4a8b-8b53-e96f0387e141/softcartRelationships.jpg)
 
+We then generate the SQL script from the ERD design tool to optain the data warehouse schema. 
 
+After loading data into the different tables, we write aggregation queries and create MQTs to make reporting easier.
+
+- Grouping sets query using the columns country, category, totalsales, to get total sales per country and category
+  
+```SQL
+SELECT country, category, sum(amount) AS totalsales
+FROM factsales
+LEFT JOIN dimcountry
+ON factsales.countryid = dimcountry.countryid
+LEFT JOIN dimcategory
+ON factsales.categoryid = dimcategory.categoryid
+GROUP BY GROUPING SETS(country,category)
+ORDER BY country, category
+```
+- Rollup query using the columns year, country, and totalsales, to get total sales per year and country
+
+```sql
+SELECT year, country, sum(amount) AS totalsales
+FROM factsales
+LEFT JOIN dimdate
+ON factsales.dateid = dimdate.dateid
+LEFT JOIN dimcountry
+ON factsales.countryid = dimcountry.countryid
+GROUP BY ROLLUP(year,category)
+ORDER BY year, country
+```
+
+- cube query using the columns year, country, and average sales, to get the average sales per year and country
+
+```sql
+SELECT year, country, avg(amount) AS averagesales
+FROM factsales
+LEFT JOIN dimdate
+ON factsales.dateid = dimdate.dateid
+LEFT JOIN dimcountry
+ON factsales.countryid = dimcountry.countryid
+GROUP BY CUBE(year,category)
+ORDER BY year, country
+```
+
+- MQT named total_sales_per_country that has the columns country and total_sales.
+
+```sql
+CREATE TABLE total_sales_per_country(country, totalsales) AS
+		(SELECT country, sum(amount)
+FROM factsales
+LEFT JOIN dimcountry
+ON factsales.countryid = dimcountry.countryid
+GROUP BY country)
+					DATA INITIALLY DEFERRED
+					REFRESH DEFERRED
+					MAINTAINED BY SYSTEM;
+```
 
 
