@@ -42,7 +42,32 @@ We import a document into a database named catalog and a collection named electr
 ```powershell
 mongoimport -u root -p MTY5Ni1wZ3JvbmRl --authenticationDatabase admin --db catalog --collection electronics --file catalog.json
 ```
+Then we can start working with MongoDB.
 
+```MongoDB
+# List out all databases to check if catalog is here
+show dbs
+
+# List out all the collections in the database catalog
+use catalog
+show collections
+
+# Creation of an index on the field "type"
+db.electronics.createIndex({"type":1})
+
+# Find the count of laptops
+db.electronics.count({"type":"laptop"})
+
+# Find the number of smart phones with screen size of 6 inches.
+db.electronics.find({"type":"smart phone", "screen size": 6}).count()
+
+# Find out the average screen size of smart phones.
+db.electronics.aggregate([{"$match":{"type":"smart phone"}},{"$group":{"_id":"$type", "average":{"$avg":"$screen size"}}}])
+```
+We now export the fields _id, “type”, “model”, from the ‘electronics’ collection into a file named electronics.csv
+```powershell
+We now export the fields _id, “type”, “model”, from the ‘electronics’ collection into a file named electronics.csv
+```
 
 
 
