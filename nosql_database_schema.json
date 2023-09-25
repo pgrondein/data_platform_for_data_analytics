@@ -1,0 +1,18 @@
+# List out all databases to check if catalog is here
+show dbs
+
+# List out all the collections in the database catalog
+use catalog
+show collections
+
+# Creation of an index on the field "type"
+db.electronics.createIndex({"type":1})
+
+# Find the count of laptops
+db.electronics.count({"type":"laptop"})
+
+# Find the number of smart phones with screen size of 6 inches.
+db.electronics.find({"type":"smart phone", "screen size": 6}).count()
+
+# Find out the average screen size of smart phones.
+db.electronics.aggregate([{"$match":{"type":"smart phone"}},{"$group":{"_id":"$type", "average":{"$avg":"$screen size"}}}])
