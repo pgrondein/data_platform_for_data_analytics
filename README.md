@@ -68,7 +68,20 @@ We now export the fields _id, “type”, “model”, from the ‘electronics�
 ```powershell
 We now export the fields _id, “type”, “model”, from the ‘electronics’ collection into a file named electronics.csv
 ```
+## Design & Build of a Data Warehouse - PostgreSQL
 
+We will now design the schema for a data warehouse based on the schema of the OLTP and NoSQL databases. We’ll then create the schema and load the data into the fact and dimension tables, automate the daily incremental data insertion into the data warehouse, and create Cubes and Rollups to make the reporting easier.
+
+The company retails download only items like E-Books, Movies, Songs etc. It has international presence and customers from all over the world, and would like to create a data warehouse so that it can create reports like
+
+- total sales per year per country
+- total sales per month per category
+- total sales per quarter per country
+- total sales per category per country
+
+We use the ERD Design Tool of pgAdmin from PostgreSQL.
+
+![softcartRelationships.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/589f2cdb-c9de-4013-a992-6fb063ff1ea6/f098a2f9-1845-4a8b-8b53-e96f0387e141/softcartRelationships.jpg)
 
 
 
