@@ -34,4 +34,17 @@ tar -xf mongodb-database-tools-ubuntu1804-x86_64-100.3.1.tgz
 export PATH=$PATH:/home/project/mongodb-database-tools-ubuntu1804-x86_64-100.3.1/bin
 echo "done"
 ```
+We verify that the tool got installed, by running the below command on the terminal.
+```powershell
+mongoimport --version
+```
+We import a document into a database named catalog and a collection named electronics in one command.
+```powershell
+mongoimport -u root -p MTY5Ni1wZ3JvbmRl --authenticationDatabase admin --db catalog --collection electronics --file catalog.json
+```
+
+
+
+
+
 
