@@ -2,7 +2,7 @@
 
 This project goal is to design a Data Platform for retail Data Analytics. 
 
-We will use MySQL as an OLTP database and MongoDB as a NoSQL database, design and implement a data warehouse and generate reports from the data, design a reporting dashboard that reflects the key metrics of the business, extract data from OLTP and NoSQL databases, transform it and load it into the data warehouse, then create an ETL pipeline, and finally, create a Spark connection to the data warehouse and then deploy a machine learning model.
+We will use MySQL as an OLTP database and MongoDB as a NoSQL database, design and implement a data warehouse and generate reports from the data, design a reporting dashboard that reflects the key metrics of the business, extract data from OLTP and NoSQL databases, transform it and load it into the data warehouse, and finally, create a Spark connection to the data warehouse and then deploy a machine learning model.
 
 Let’s go.
 
@@ -169,5 +169,11 @@ The Python script needs to
 - Insert the new data in the MySQL staging data warehouse into the PostgreSQL production data warehouse.
 
 The Python script is available here : [etl.py](https://github.com/pgrondein/data_platform_for_data_analytics/blob/f1cf0e857b2209264bfe97486afc96dcc1e491a6/etl.py)
+
+## Design of a Big Data architecture - Apache Spark
+
+Finally, we will use our skills in Big Data Analytics to create a Spark connection to the data warehouse and then deploy a machine learning model on SparkML for making sales projections.
+
+The Python script is available here : [big_data_script.py](https://github.com/pgrondein/data_platform_for_data_analytics/blob/5b95af92f8dbd1a49c07dfed68213fe002baf752/big_data_script.py)
 
 
