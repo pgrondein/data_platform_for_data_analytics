@@ -28,10 +28,10 @@ We will set up a NoSQL database to store the catalog data for the E-website, loa
 
 We need the ‘mongoimport’ and ‘mongoexport’ tools to move data in and out of the mongodb database. To install these tools run the below commands on the terminal.
 
-'''powershell
+```powershell
 wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu1804-x86_64-100.3.1.tgz
 tar -xf mongodb-database-tools-ubuntu1804-x86_64-100.3.1.tgz
 export PATH=$PATH:/home/project/mongodb-database-tools-ubuntu1804-x86_64-100.3.1/bin
 echo "done"
-'''
+```
 
