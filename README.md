@@ -18,5 +18,5 @@ The time taken to execute a transaction usually called latency needs to be very 
 
 The schema of an OLTP database is higly normalized so as to achieve a very low latency. To further improve the latency an OLTP database stores only the recent data like the last few week's data. They are usually run on storage that is very fast like SSD.
 
-The SQL queries can be found here : oltp_database_mysql.sql
+The SQL queries can be found here : [oltp_database_mysql.sql](https://github.com/pgrondein/data_platform_for_data_analytics/blob/ea1e2ab4eb97e72ba43c80f5660b7042c1edb92b/oltp_database_mysql.sql)https://github.com/pgrondein/data_platform_for_data_analytics/blob/ea1e2ab4eb97e72ba43c80f5660b7042c1edb92b/oltp_database_mysql.sql
 
